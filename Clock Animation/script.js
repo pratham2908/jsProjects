@@ -38,3 +38,17 @@ function setClock() {
 }
 
 setClock();
+
+
+const start = document.querySelector('.start');
+const clock = document.querySelector('.clock');
+
+
+start.addEventListener('click', () => {
+    start.style.transform = "translate(-50%, -50%) scale(0)";
+    clock.style.display = 'flex';
+    setTimeout(() => {
+        start.style.display = "none";
+        clock.style.transform = " scale(1)";
+    }, 700);
+});

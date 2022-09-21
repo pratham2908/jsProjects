@@ -23,9 +23,16 @@ body {
 }
 
 .time {
-  font-size: 13rem;
+  font-size: 16rem;
 }
 
 .small {
-  font-size: 10rem;
+  font-size: 13rem;
+}
+
+.paused {
+  font-size: 20px;
+  position: absolute;
+  left: 50%;
+  top: 0;
 }
