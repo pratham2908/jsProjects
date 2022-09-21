@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/09bf6604f2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="circle" style="--clr: #dd4589">
+        <div class="dot"></div>
+        <svg>
+          <circle cx="250" cy="250" r="250" fill="black"></circle>
+        </svg>
+      </div>
+      <div class="circle" style="--clr: #34ff34">
+        <div class="dot"></div>
+        <svg>
+          <circle cx="200" cy="200" r="200" fill="black"></circle>
+        </svg>
+      </div>
+      <div class="circle" style="--clr: #efef00">
+        <div class="dot"></div>
+        <svg>
+          <circle cx="150" cy="150" r="150" fill="black"></circle>
+        </svg>
+      </div>
+      <div class="time">
+        <span class="hour" style="--clr: #efef00"></span>
+        <span class="minute" style="--clr: #34ff34"></span>
+        <span class="second" style="--clr: #dd4589"></span>
+        <span class="ampm"></span>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

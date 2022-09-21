@@ -1,0 +1,112 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #2f363e;
+}
+
+.clock {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  height: 600px;
+  background-color: #2f363e;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.circle {
+  position: absolute;
+}
+.circle:nth-of-type(1) svg {
+  width: 500px;
+  height: 500px;
+}
+
+.circle:nth-of-type(2) svg {
+  width: 400px;
+  height: 400px;
+}
+
+.circle:nth-of-type(3) svg {
+  width: 300px;
+  height: 300px;
+}
+
+.circle svg {
+  transform: rotate(270deg);
+}
+
+.circle svg circle {
+  fill: none;
+  stroke: var(--clr);
+  stroke-width: 6px;
+  opacity: 0.3;
+  stroke-linecap: round;
+}
+
+.circle:nth-of-type(1) svg circle {
+  stroke-dasharray: 1571;
+  stroke-dashoffset: 1571;
+}
+
+.circle:nth-of-type(2) svg circle {
+  stroke-dasharray: 1257;
+  stroke-dashoffset: 1257;
+}
+.circle:nth-of-type(3) svg circle {
+  stroke-dasharray: 942;
+  stroke-dashoffset: 942;
+}
+
+.dot {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.dot::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: var(--clr);
+  top: -10px;
+  box-shadow: 0 0 20px 2px var(--clr), 0 0 40px 2px var(--clr),
+    0 0 60px 2px var(--clr), 0 0 80px 2px var(--clr), 0 0 100px 2px var(--clr);
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.time span {
+  color: var(--clr);
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0 5px;
+  text-shadow: 0 0 10px var(--clr);
+}
+
+.time :nth-child(4) {
+  position: absolute;
+  transform: translate(120px, -15px);
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 0 10px white;
+}
