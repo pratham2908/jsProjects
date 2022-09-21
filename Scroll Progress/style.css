@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  height: 3000px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  position: relative;
+  background-color: #444;
+}
+body::-webkit-scrollbar {
+  width: 4px;
+}
+body::-webkit-scrollbar-track {
+  background-color: #ddd;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #b0b;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #a0a;
+}
+
+.scroll .scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 5px;
+  background-color: #b0b;
+  z-index: 1;
+}
+.scroll .scroll-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  opacity: 0.2;
+  display: none;
+  height: 100%;
+  background-color: #0bb;
+  cursor: pointer;
+}
+.scroll .scroll-top:hover {
+  opacity: 0.5;
+  background-color: #099;
+}
+.scroll .scroll-top .fa-arrow-up {
+  position: absolute;
+  top: 50%;
+  font-size: 20px;
+}
+
+.cover-page {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid #000;
+}
+
+.projects header h1 {
+  margin: 20px 150px;
+}
+.projects header h1 span {
+  display: inline-block;
+  color: red;
+  font-size: 70px;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  transition: color 0.1s linear;
+  color: white;
+  transform: scale(0);
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.projects header h1 span:hover {
+  color: #0bb;
+}
+.projects header h1 span.rubberband {
+  -webkit-animation-name: rubberBand;
+          animation-name: rubberBand;
+}
+.projects header h1 span.appear {
+  -webkit-animation-name: appear;
+          animation-name: appear;
+}
+
+.project-wall {
+  display: flex;
+  flex-wrap: wrap;
+}
+.project-wall .project {
+  position: relative;
+  width: 33%;
+}
+.project-wall .project img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.project-wall .project.active .project-info {
+  transform: translate(-50%, -50%) scale(1);
+}
+.project-wall .project.active::before {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.project-wall .project::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  transition: background-color 0.5s ease;
+}
+.project-wall .project .project-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  overflow: hidden;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+  background-color: #099;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+
+@-webkit-keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0) rotate(360deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0) rotate(360deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes rubberBand {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+@keyframes rubberBand {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}/*# sourceMappingURL=style.css.map */

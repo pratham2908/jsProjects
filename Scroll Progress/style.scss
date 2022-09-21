@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  height: 3000px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  position: relative;
+  background-color: #444;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+
+    &-track {
+      background-color: #ddd;
+    }
+
+    &-thumb {
+      background-color: #b0b;
+    }
+
+    &-thumb:hover {
+      background-color: #a0a;
+    }
+  }
+}
+
+.scroll {
+  .scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5px;
+    background-color: #b0b;
+    z-index: 1;
+  }
+
+  .scroll-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    opacity: 0.2;
+    display: none;
+    height: 100%;
+    background-color: #0bb;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.5;
+      background-color: #099;
+    }
+
+    .fa-arrow-up {
+      position: absolute;
+      top: 50%;
+      font-size: 20px;
+    }
+  }
+}
+
+.cover-page {
+  height: 100vh;
+  width: 100vw;
+  border: 1px solid #000;
+}
+
+.projects header h1 {
+  margin: 20px 150px;
+
+  span {
+    display: inline-block;
+    color: red;
+    font-size: 70px;
+    animation-timing-function: ease-in-out;
+    animation-duration: 1s;
+    transition: color 0.1s linear;
+    color: white;
+    transform: scale(0);
+    animation-fill-mode: forwards;
+
+    &:hover {
+      color: #0bb;
+    }
+
+    &.rubberband {
+      animation-name: rubberBand;
+    }
+
+    &.appear {
+      animation-name: appear;
+    }
+  }
+}
+
+.project-wall {
+  display: flex;
+  flex-wrap: wrap;
+
+  .project {
+    position: relative;
+    width: 33%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    &.active {
+      .project-info {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      &::before {
+        background-color: rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 1;
+      transition: background-color 0.5s ease;
+    }
+
+    .project-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      overflow: hidden;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      transition: transform 0.3s ease-in-out;
+      background-color: #099;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0) rotate(360deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rubberBand {
+  0% {
+    transform: scale(1, 1);
+  }
+  30% {
+    transform: scale(1.25, 0.75);
+  }
+  40% {
+    transform: scale(0.75, 1.25);
+  }
+  50% {
+    transform: scale(1.15, 0.85);
+  }
+  65% {
+    transform: scale(0.95, 1.05);
+  }
+  75% {
+    transform: scale(1.05, 0.95);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}

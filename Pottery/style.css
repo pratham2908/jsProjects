@@ -1,0 +1,240 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+body {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #121212;
+}
+
+.welcome {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.welcome span {
+  display: inline-block;
+  font-size: 70px;
+}
+
+.welcome span.appear {
+  animation: appear 1s ease-in-out forwards;
+}
+
+main {
+  display: grid;
+  width: 90%;
+  margin-top: 20vh;
+  grid-template-columns: repeat(4, minmax(50px, 1fr));
+  gap: 100px;
+}
+
+form {
+  margin-top: 50px;
+  color: white;
+}
+
+#count {
+  color: white;
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+.bowl {
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  position: relative;
+  border: 0.8vw solid transparent;
+  animation: bowlRotate 4s linear infinite;
+  transform-origin: bottom center;
+}
+
+section {
+  position: relative;
+}
+
+.bowl::before {
+  content: "";
+  position: absolute;
+  top: -7%;
+  width: 40%;
+  height: 10%;
+  border-radius: 50%;
+  border: 1vw solid grey;
+  transform: translateX(-50%);
+  left: 50%;
+  box-shadow: 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.bowl::after {
+  content: "";
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.liquid {
+  position: absolute;
+  left: 1.5%;
+  right: 1.5%;
+  bottom: 1.5%;
+  top: 50%;
+  background-color: rgb(50, 200, 255);
+  border-bottom-left-radius: 12vw;
+  border-bottom-right-radius: 12vw;
+  filter: drop-shadow(0 0 80px rgb(50, 200, 255));
+  animation: liquidRotate 4s linear infinite;
+  transform-origin: top center;
+}
+
+.water {
+  position: absolute;
+  width: 100%;
+  height: 1.5vw;
+  left: 0;
+  top: -0.8vw;
+  border-radius: 50%;
+  background-color: rgb(30, 160, 200);
+  filter: drop-shadow(0 0 80px rgb(50, 200, 255));
+}
+
+.shadow {
+  position: absolute;
+  width: 100%;
+  height: 2.2vw;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 90%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/*Loading Animation*/
+.loader {
+  display: none;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+}
+
+.loading-box {
+  height: 40px;
+  width: 350px;
+  background-color: #121212;
+  border: 1px solid grey;
+  margin-top: 30px;
+}
+
+.load-percent {
+  height: 100%;
+  width: 0%;
+  background-color: rgb(50, 200, 255);
+  animation: load 2s linear 1;
+}
+
+/* Animation and Media queries */
+
+@keyframes load {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bowlRotate {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes liquidRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(15deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-15deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes appear {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(0) rotate(360deg);
+  }
+  70% {
+    transform: scale(1.2) rotate(0deg);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  90% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main {
+    grid-template-columns: repeat(3, minmax(50px, 1fr));
+    gap: 100px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  main {
+    grid-template-columns: repeat(2, minmax(50px, 1fr));
+    gap: 50px;
+  }
+}
