@@ -12,7 +12,6 @@
   overflow: hidden;
   background: #27ae60;
   color: #fff;
-  animation: colour 5s linear infinite;
 }
 
 .circle {
@@ -46,12 +45,4 @@
   }
 }
 
-@keyframes colour {
-  0% {
-    filter: hue-rotate(0deg);
-  }
 
-  100% {
-    filter: hue-rotate(360deg);
-  }
-}
